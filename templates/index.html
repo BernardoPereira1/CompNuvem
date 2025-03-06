@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tasks</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1 class="my-4">Tasks</h1>
+
+        <!-- Exibição das Tarefas -->
+        <ul class="list-group">
+            {% for task in tasks %}
+                <li class="list-group-item">
+                    <div class="d-flex justify-content-between flex-column">
+                        <!-- Data de criação com label -->
+                        <label for="task-text-{{ task.id }}" class="font-weight-bold">Data de Criação</label>
+                        <small class="text-muted">{{ task.data_criacao.strftime('%d/%m/%Y %H:%M:%S') }}</small>
+
+                        <!-- Textarea que é inicialmente desabilitada e será habilitada no modo de edição -->
+                        <form action="/update_task/{{ task.id }}" method="POST" class="d-inline">
+                            <textarea id="task-text-{{ task.id }}" name="descricao" class="form-control form-control-sm mt-2" disabled>{{ task.descricao }}</textarea>
+
+                            <!-- Botões de Salvar e Cancelar -->
+                            <div id="edit-buttons-{{ task.id }}" class="mt-2" style="display:none;">
+                                <button type="submit" class="btn btn-success btn-sm">Salvar</button>
+                                <button type="button" class="btn btn-secondary btn-sm ml-2" onclick="cancelEdit('{{ task.id }}')">Cancelar</button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- Botões editar e excluir que ficam invisíveis quando no modo de edição -->
+                    <div id="task-buttons-{{ task.id }}" class="mt-2">
+                        <button type="button" class="btn btn-warning btn-sm" onclick="toggleEdit('{{ task.id }}')">Editar</button>
+                        <form action="/delete_task/{{ task.id }}" method="POST" style="display:inline;">
+                            <button type="submit" class="btn btn-danger btn-sm ml-2">Excluir</button>
+                        </form>
+                    </div>
+                </li>
+            {% endfor %}
+        </ul>
+
+        <!-- Formulário para Adicionar Tarefa -->
+        <form action="/add_task" method="POST" class="mt-4">
+            <div class="form-group">
+                <input type="text" name="descricao" class="form-control" placeholder="Nova tarefa" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Adicionar</button>
+        </form>
+
+        <!-- Botão de Logout -->
+        <form action="/logout" method="GET" class="mt-4">
+            <button type="submit" class="btn btn-secondary">Logout</button>
+        </form>
+
+        <!-- Botão para excluir conta -->
+        <form action="/delete_account" method="POST" class="mt-2">
+            <button type="submit" class="btn btn-danger">Excluir Conta</button>
+        </form>
+    </div>
+
+    <script>
+        function toggleEdit(taskId) {
+            var taskText = document.getElementById('task-text-' + taskId);
+            var taskButtons = document.getElementById('task-buttons-' + taskId);
+            var editButtons = document.getElementById('edit-buttons-' + taskId);
+
+            // Alterna o estado de edição
+            if (taskText.disabled) {
+                taskText.disabled = false;  // Habilita a textarea para edição
+                taskButtons.style.display = 'none';  // Esconde o botão de editar e excluir
+                editButtons.style.display = 'block';  // Mostra os botões de salvar e cancelar
+            } else {
+                taskText.disabled = true;  // Desabilita a textarea
+                taskButtons.style.display = 'block';  // Mostra os botões de editar e excluir
+                editButtons.style.display = 'none';  // Esconde os botões de salvar e cancelar
+            }
+        }
+
+        function cancelEdit(taskId) {
+            var taskText = document.getElementById('task-text-' + taskId);
+            var taskButtons = document.getElementById('task-buttons-' + taskId);
+            var editButtons = document.getElementById('edit-buttons-' + taskId);
+
+            // Desfaz alterações e alterna os botões
+            taskText.disabled = true;  // Desabilita novamente a textarea
+            taskButtons.style.display = 'block';  // Mostra os botões de editar e excluir
+            editButtons.style.display = 'none';  // Esconde os botões de salvar e cancelar
+        }
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
