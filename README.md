@@ -6,6 +6,7 @@ Caso **já tenha os ficheiros das Vms**, pode **descer até a baixo para continu
 ## Instalação inicial e configuração das máquinas virtuais com o WSL 
 
 1. **Instale as máquinas:**
+   
    ```bash
    wsl --install
    wsl --install -d "Ubuntu 24.04"
@@ -22,49 +23,58 @@ Na primeira máquina siga os seguintes passos:
    ```bash
    sudo apt install mysql-server
    ```
+   
 2. **Corra o serviço mysql:**
    ```bash
    sudo service mysql start
    ```
+   
 3. **Abra o arquivo de configuração do MySQL:**
-   ```sh
+   ```bash
    sudo nano /etc/mysql/mysql.conf.d/mysqld.cnf
    ```
+   
 4. **Encontre a linha contendo `bind-address` e altere para:**
-   ```ini
+   ```bash
    bind-address = 0.0.0.0
    ```
-5. **Salve o arquivo e feche o mesmo**
+   **de seguida salve o ficheiro!*
 
-6. **Aceda ao mysql:**
-   ```sh
+5. **Aceda ao mysql:**
+   ```bash
    sudo mysql
    ```
-7. **Crie um usuário remoto:**
+   
+6. **Crie um usuário remoto:**
    ```sql
    CREATE USER 'admin'@'%' IDENTIFIED BY 'admin';
    ```
-8. **Conceda permissões ao usuário:**
+   
+7. **Conceda permissões ao usuário:**
    ```sql
    GRANT ALL PRIVILEGES ON *.* TO 'admin'@'%' WITH GRANT OPTION;
    ```
-9. **Aplique as alterações:**
+   
+8. **Aplique as alterações:**
    ```sql
    FLUSH PRIVILEGES;
    ```
-10. **Saia do MySQL:**
+   
+9. **Saia do MySQL:**
    ```sql
    EXIT;
    ```
-11. **Reenicie o serviço mysql:**
+10. **Reenicie o serviço mysql:**
    ```bash
    sudo service mysql restart
    ```
-12. **Volte a aceder ao mysql:**
+
+11. **Volte a aceder ao mysql:**
    ```bash
    sudo mysql
    ```
-13. **Corra o script para criar a base de dados:**
+
+12. **Corra o script para criar a base de dados:**
    ```sql
       CREATE DATABASE IF NOT EXISTS todo;
       USE todo;
@@ -85,7 +95,8 @@ Na primeira máquina siga os seguintes passos:
           FOREIGN KEY (user_id) REFERENCES user(id) ON DELETE CASCADE
       );
    ```
-14. **Saia do MySQL:**
+
+13. **Saia do MySQL:**
    ```sql
    EXIT;
    ```
