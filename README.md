@@ -167,7 +167,13 @@ Se o mysql for aberto é porque a conexão foi concluida com sucesso e temos ace
 # Execução da Aplicação
 ## Caso tenha optado por utilizar as vms disponibilizadas, siga os seguintes passos:
 
-Abra a máquina que contem a base de dados **(Ubuntu)** e execute os seguintes comandos:
+Para importar uma distribuição do WSL a partir de um arquivo `.tar`, execute o seguinte comando no PowerShell (como administrador):
+
+```bash
+wsl --import <nome-da-distribuicao> <diretório-de-destino> <caminho-do-arquivo-tar>
+```
+
+Após importar as máquinas, abra a máquina que contem a base de dados **(Ubuntu)** e execute os seguintes comandos:
 
 - **A password da máquina é "berna"**
 
