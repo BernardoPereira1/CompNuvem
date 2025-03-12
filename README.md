@@ -202,7 +202,7 @@ De seguida abra a máquina que contém a aplicação **(Ubuntu 24.04)** e execut
    python3 app.py
    ```
    
-Em caso de falha no ultimo passo pode optar por clicar no run button do vs code.
+Em caso de falha no ultimo passo pode optar por abrir o ficheiro **app.py** e clicar no run button do vs code.
 
 ![VsCode](https://i.sstatic.net/qqsMY.png)
 
