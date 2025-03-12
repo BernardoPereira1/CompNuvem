@@ -201,8 +201,11 @@ De seguida abra a máquina que contém a aplicação **(Ubuntu 24.04)** e execut
    ```bash
    python3 app.py
    ```
+   
 Caso este passo não funcione pode optar por clicar no run button do vs code.
-<img src="https://i.sstatic.net/qqsMY.png" alt="Descrição da Imagem" width="300">
+
+![Descrição da Imagem](https://i.sstatic.net/qqsMY.png)
+
 
 
 
