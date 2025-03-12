@@ -12,7 +12,7 @@ Caso **já tenha os ficheiros das Vms**, pode **descer até a baixo para continu
    wsl --install -d "Ubuntu 24.04"
    ```
 
-Uma vez que as máquinas foram instaladas definir o nome de utilizador e password.
+Uma vez que as máquinas foram instaladas deve definir o nome de utilizador e password.
 
 
 ## Instalação e configuração do MySQL Server e da base de dados para Acesso Externo
@@ -38,7 +38,7 @@ Na primeira máquina siga os seguintes passos:
    ```bash
    bind-address = 0.0.0.0
    ```
-   **de seguida salve o ficheiro!*
+   **de seguida salve o ficheiro!**
 
 5. **Aceda ao mysql:**
    ```bash
@@ -101,7 +101,7 @@ Na primeira máquina siga os seguintes passos:
    EXIT;
    ```
 
-## Acesso e teste à base de dados pela segunda máquina.
+## Acesso e teste à base de dados pela segunda máquina
 
 Já na segunda máquina siga os seguintes passos:
 
@@ -122,7 +122,7 @@ Já na segunda máquina siga os seguintes passos:
    ```
    **O sistema vai pedir para inserir a password que será a que foi definida na primeira máquina no mysql ao criar o utilizador!**
 
-Se o mysql for aberto é porque a conexão foi concluida com sucesso e temos acesso à base de dados. Podemos também voltar a entrar no mysql e fazer **SHOW DATABASES;** e verificar que a base de dados **todo** está na lista.
+Se o mysql for aberto é porque a conexão foi concluida com sucesso e temos acesso à base de dados. Podemos também voltar a entrar no mysql (utilizando o comando de cima) e fazer **SHOW DATABASES;** e verificar que a base de dados **todo** está na lista.
 
 ## Configuração da aplicação
 
