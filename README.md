@@ -13,9 +13,7 @@ Se **ainda não tem os ficheiros das máquinas virtuais**, segue os passos abaix
    ```
 
 Uma vez que as máquinas foram instaladas deve definir o nome de utilizador e password.
-
-
-
+---
 
 ## Instalação e configuração do MySQL Server e da base de dados para Acesso Externo
 
@@ -102,7 +100,7 @@ Na primeira máquina siga os seguintes passos:
    EXIT;
    ```
 
-
+---
 
 ## Acesso e teste à base de dados pela segunda máquina
 
@@ -127,7 +125,7 @@ Já na segunda máquina siga os seguintes passos:
 
 Se o mysql for aberto é porque a conexão foi concluida com sucesso e temos acesso à base de dados. Podemos também voltar a entrar no mysql (utilizando o comando de cima) e fazer **SHOW DATABASES;** e verificar que a base de dados **todo** está na lista.
 
-
+---
 
 ## Configuração da aplicação
 
@@ -163,7 +161,7 @@ Se o mysql for aberto é porque a conexão foi concluida com sucesso e temos ace
    python3 app.py
    ```
 
-
+---
 
 # Execução da Aplicação
 
