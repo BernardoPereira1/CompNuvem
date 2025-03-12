@@ -101,6 +101,8 @@ Na primeira máquina siga os seguintes passos:
    EXIT;
    ```
 
+
+
 ## Acesso e teste à base de dados pela segunda máquina
 
 Já na segunda máquina siga os seguintes passos:
@@ -123,6 +125,8 @@ Já na segunda máquina siga os seguintes passos:
    **O sistema vai pedir para inserir a password que será a que foi definida na primeira máquina no mysql ao criar o utilizador!**
 
 Se o mysql for aberto é porque a conexão foi concluida com sucesso e temos acesso à base de dados. Podemos também voltar a entrar no mysql (utilizando o comando de cima) e fazer **SHOW DATABASES;** e verificar que a base de dados **todo** está na lista.
+
+
 
 ## Configuração da aplicação
 
@@ -157,6 +161,8 @@ Se o mysql for aberto é porque a conexão foi concluida com sucesso e temos ace
    ```bash
    python3 app.py
    ```
+
+
 
 # Execução da Aplicação
 
