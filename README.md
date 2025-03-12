@@ -13,6 +13,7 @@ Se **ainda não tem os ficheiros das máquinas virtuais**, segue os passos abaix
    ```
 
 Uma vez que as máquinas foram instaladas deve definir o nome de utilizador e password.
+
 ---
 
 ## Instalação e configuração do MySQL Server e da base de dados para Acesso Externo
