@@ -1,7 +1,7 @@
-# Configuração e Execução da Aplicação 
+# Configuração das Vms e Execução da Aplicação
 
 Se **ainda não tem os ficheiros das máquinas virtuais**, segue os passos abaixo para instalar e configurá-las corretamente.  
-Caso **já tenha os ficheiros das Vms**, pode **descer até a baixo para continuar.**
+➡️ [Já tem os ficheiros das VMs? Passe direto para iniciar a aplicação.](#execução-da-aplicação)
 
 ## Instalação inicial e configuração das máquinas virtuais com o WSL 
 
@@ -158,7 +158,7 @@ Se o mysql for aberto é porque a conexão foi concluida com sucesso e temos ace
    python3 app.py
    ```
 
-
+# Execução da Aplicação
 
 
 
