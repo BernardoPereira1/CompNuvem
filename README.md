@@ -168,7 +168,7 @@ Se o mysql for aberto é porque a conexão foi concluida com sucesso e temos ace
 ## Caso tenha optado por utilizar as vms disponibilizadas, siga os seguintes passos:
 
 Abra a máquina que contem a base de dados **(Ubuntu)** e execute os seguintes comandos:
-**A password da mesma é "berna"**
+   **A password da mesma é "berna"**
 
 1. **Corra o serviço mysql:**
    ```bash
@@ -183,7 +183,7 @@ Abra a máquina que contem a base de dados **(Ubuntu)** e execute os seguintes c
 ---
 
 De seguida abra a máquina que contém a aplicação **(Ubuntu 24.04)** e execute os seguintes comandos:
-**A password da mesma é "berna"**
+   **A password da mesma é "berna"**
 
 1. **Entre na pasta do projeto:**
    ```bash
