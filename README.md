@@ -1,6 +1,9 @@
-# Configuração e Execução da Aplicação
+# Configuração e Execução da Aplicação 
 
-## Instalação inicial e configuração das máquinas virtuais com o WSL
+Se **ainda não tem os ficheiros das máquinas virtuais**, segue os passos abaixo para instalar e configurá-las corretamente.  
+Caso **já tenha os ficheiros das Vms**, pode **descer até a baixo para continuar.**
+
+## Instalação inicial e configuração das máquinas virtuais com o WSL 
 
 1. **Instale as máquinas:**
    ```bash
@@ -9,15 +12,13 @@
    ```
 
 Uma vez que as máquinas foram instaladas definir o nome de utilizador e password.
-- Na primeira máquina "Ubuntu" defini o utilizador como "berna" e a password como "berna"
-- Na segunda máquina "Ubuntu 24.04" defini o utilizador como  "berna1" e a password como "berna"
 
 
 ## Instalação e configuração do MySQL Server e da base de dados para Acesso Externo
 
 Na primeira máquina siga os seguintes passos:
 
-1. **Instale o mysql-server na primeira máquina:**
+1. **Instale o mysql-server:**
    ```bash
    sudo apt install mysql-server
    ```
@@ -63,9 +64,26 @@ Na primeira máquina siga os seguintes passos:
    ```bash
    sudo mysql
    ```
-13. **Crie uma base de dados de teste:**
+13. **Corra o script para criar a base de dados:**
    ```sql
-   Create database db_teste;
+         CREATE DATABASE IF NOT EXISTS todo;
+      USE todo;
+      
+      -- Criar a tabela de usuários
+      CREATE TABLE IF NOT EXISTS user (
+          id INT AUTO_INCREMENT PRIMARY KEY,
+          email VARCHAR(100) NOT NULL UNIQUE,
+          password VARCHAR(255) NOT NULL
+      );
+      
+      -- Criar a tabela de tarefas
+      CREATE TABLE IF NOT EXISTS task (
+          id INT AUTO_INCREMENT PRIMARY KEY,
+          descricao VARCHAR(255) NOT NULL,
+          data_criacao TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+          user_id INT,
+          FOREIGN KEY (user_id) REFERENCES user(id) ON DELETE CASCADE
+      );
    ```
 14. **Saia do MySQL:**
    ```sql
