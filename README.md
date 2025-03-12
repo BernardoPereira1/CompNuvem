@@ -165,7 +165,7 @@ Se o mysql for aberto é porque a conexão foi concluida com sucesso e temos ace
 ---
 
 # Execução da Aplicação
-## Caso tenha optado por utilizar as vms disponibilizadas, siga os seguintes passos:**
+## Caso tenha optado por utilizar as vms disponibilizadas, siga os seguintes passos:
 
 Abra a máquina que contem a base de dados **(Ubuntu)** e execute os seguintes comandos:
 **A password da mesma é "berna"**
