@@ -165,9 +165,42 @@ Se o mysql for aberto é porque a conexão foi concluida com sucesso e temos ace
 ---
 
 # Execução da Aplicação
+## Caso tenha optado por utilizar as vms disponibilizadas, siga os seguintes passos:**
 
+Abra a máquina que contem a base de dados **(Ubuntu)** e execute os seguintes comandos:
+**A password da mesma é "berna"**
 
+1. **Corra o serviço mysql:**
+   ```bash
+   sudo service mysql start
+   ```
 
+2. **Verifique o estado do serviço mysql:**
+   ```bash
+   sudo service mysql status
+   ```
+
+---
+
+De seguida abra a máquina que contém a aplicação **(Ubuntu 24.04)** e execute os seguintes comandos:
+**A password da mesma é "berna"**
+
+1. **Entre na pasta do projeto:**
+   ```bash
+   cd CompNuvem
+   ```
+
+2. **Execute o vscode:**
+   ```bash
+   code .
+   ```
+
+3. **Corra a aplicação:**
+   ```bash
+   python3 app.py
+   ```
+Caso este passo não funcione pode optar por clicar no run button do vs code.
+[![Imagem de Exemplo](https://i.sstatic.net/qqsMY.png)](https://i.sstatic.net/qqsMY.png)
 
 
 
