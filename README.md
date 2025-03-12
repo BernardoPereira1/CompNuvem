@@ -66,7 +66,7 @@ Na primeira máquina siga os seguintes passos:
    ```
 13. **Corra o script para criar a base de dados:**
    ```sql
-         CREATE DATABASE IF NOT EXISTS todo;
+      CREATE DATABASE IF NOT EXISTS todo;
       USE todo;
       
       -- Criar a tabela de usuários
@@ -100,7 +100,7 @@ Já na segunda máquina siga os seguintes passos:
    ```
 
 2. **Descubra o ip da primeira máquina:**
-   Este comando deve ser executado na primera maquina!
+   **Este comando deve ser executado na primera maquina!**
    ```bash
    hostname -I
    ```
@@ -109,13 +109,13 @@ Já na segunda máquina siga os seguintes passos:
    ```bash
    mysql -h ip_PrimeiraMaquina -u admin -p
    ```
-   O sistema vai pedir para inserir a password que será a que foi definida na primeira máquina no mysql ao criar o utilizador!
+   **O sistema vai pedir para inserir a password que será a que foi definida na primeira máquina no mysql ao criar o utilizador!**
 
-Se o mysql for aberto é porque a conexão foi concluida com sucesso e temos acesso à base de dados.
+Se o mysql for aberto é porque a conexão foi concluida com sucesso e temos acesso à base de dados. Podemos também voltar a entrar no mysql e fazer **SHOW DATABASES;** e verificar que a base de dados **todo** está na lista.
 
 ## Configuração da aplicação
 
-   Esta configuração deve ser feita na segunda máquina uma vez que só utilizamos a primeira para a base de dados
+   **Esta configuração deve ser feita na segunda máquina uma vez que só utilizamos a primeira para a base de dados**
 
    1. **Clone o repositório:**
    ```bash
@@ -133,13 +133,13 @@ Se o mysql for aberto é porque a conexão foi concluida com sucesso e temos ace
    pip install -r requirements.txt
    ```
 
-   4. **Crie um arquivo `.env` na raiz do projeto com as configurações do banco:**
+   4. **Crie um arquivo `.env` na raiz do projeto com as configurações da base de dados:**
    ```ini
    SECRET_KEY=sua-chave-secreta-aqui
    DB_USER=admin
-   DB_PASSWORD=passwordMysql
+   DB_PASSWORD=admin
    DB_HOST=ip_PrimeiraMaquina
-   DB_NAME=db_exemplo
+   DB_NAME=todo
    ```
 
    5. **Execute a aplicação:**
