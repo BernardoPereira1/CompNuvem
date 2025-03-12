@@ -15,6 +15,8 @@ Se **ainda não tem os ficheiros das máquinas virtuais**, segue os passos abaix
 Uma vez que as máquinas foram instaladas deve definir o nome de utilizador e password.
 
 
+
+
 ## Instalação e configuração do MySQL Server e da base de dados para Acesso Externo
 
 Na primeira máquina siga os seguintes passos:
@@ -38,7 +40,6 @@ Na primeira máquina siga os seguintes passos:
    ```bash
    bind-address = 0.0.0.0
    ```
-   **de seguida salve o ficheiro!**
 
 5. **Aceda ao mysql:**
    ```bash
