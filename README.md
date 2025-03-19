@@ -214,6 +214,69 @@ Em caso de falha no ultimo passo pode optar por abrir o ficheiro **app.py** e cl
 
 
 
+# Acesso Remoto à Aplicação no WSL 2 a partir de outra máquina na mesma rede
+
+Este passo explica como configurar o acesso remoto a uma aplicação que está a rodar no WSL 2 a partir de outra máquina.
+
+## 1. Configurar Redirecionamento de Porta
+
+O WSL 2 não permite acesso direto de outras máquinas, então é necessário configurar um proxy de porta no Windows. Execute o seguinte comando no PowerShell como administrador:
+
+```powershell
+netsh interface portproxy add v4tov4 listenport=5000 listenaddress=0.0.0.0 connectport=5000 connectaddress=WSL_IP
+```
+
+Substitua `WSL_IP` pelo IP da sua máquina dentro do WSL. Você pode obter esse IP ao utilizar o seguinte comando:
+
+```bash
+ip a
+```
+
+## 2. Abrir a Porta 5000 na Firewall do Windows
+
+Para permitir conexões externas, abra a porta 5000 na firewall do Windows:
+
+1. Abra o **Prompt de Comando** como administrador e execute:
+   ```powershell
+   netsh advfirewall firewall add rule name="WSL Flask" dir=in action=allow protocol=TCP localport=5000
+   ```
+
+2. Ou, manualmente:
+   - Vá até **Painel de Controle** → **Firewall do Windows Defender** → **Configurações Avançadas**.
+   - Clique em **Regras de Entrada** → **Nova Regra**.
+   - Escolha **Porta**, selecione **TCP** e insira **5000**.
+   - Marque **Permitir a Conexão** e conclua a configuração.
+
+## 3. Executar a Aplicação Flask no WSL 2
+
+## 4. Aceder a Aplicação a Partir de Outra Máquina
+
+Agora, em qualquer dispositivo na mesma rede, aceda à aplicação através do browser ou de uma API utilizando:
+
+```
+http://<IP_DO_HOST_WINDOWS>:5000
+```
+
+Para descobrir o IP da máquina Windows, utilize o seguinte comando no cmd:
+
+```powershell
+ipconfig
+```
+
+O IP será exibido na interface de rede ativa, como "Adaptador Ethernet" ou "Wi-Fi".
+---
+Seguindo estes passos, a aplicação Flask que está no WSL 2 poderá ser acedida remotamente a partir de outra máquina.
+
+
+
+
+
+
+
+
+
+
+
 
 
 
